@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   wishlist:
   - apiVersion: v2
+    appVersion: v0.66.0
+    created: "2026-08-23T22:11:16.254151954Z"
+    description: Wishlist is a self-hosted wishlist application that you can share
+      with your friends and family.
+    digest: ae8ec18be42821bc4840ab3dbc5f4f062d00d8412e52300d66b7b6c8632e4cb3
+    home: https://github.com/mddeff/wishlist-charts
+    keywords:
+    - wishlist
+    name: wishlist
+    sources:
+    - https://github.com/cmintey/wishlist
+    urls:
+    - https://github.com/fox1e-dev/wishlist-charts/releases/download/wishlist-0.0.6/wishlist-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
     appVersion: v0.42.5
     created: "2026-08-23T22:07:50.453566538Z"
     description: Wishlist is a self-hosted wishlist application that you can share
@@ -16,4 +31,4 @@ entries:
     urls:
     - https://github.com/fox1e-dev/wishlist-charts/releases/download/wishlist-0.0.5/wishlist-0.0.5.tgz
     version: 0.0.5
-generated: "2026-08-23T22:07:50.453570626Z"
+generated: "2026-08-23T22:11:16.254158251Z"
