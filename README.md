@@ -1,4 +1,9 @@
-# Wishlist Helm Chart
+# Wishlist Helm Chart (fork)
+
+> [!IMPORTANT]
+> This whole thing is for my own use with Flux and Kustomize, I will try to keep it up-to-date, but I am not sure it will work with a different setup. The README is unedited besides this note and the title.  
+> \- Love, L
+
 This helm chart installs the [Wishlist web application](https://github.com/cmintey/wishlist) written by [cmintey](https://github.com/cmintey/).  This is an **unofficial chart** utilizing the official docker image. 
 
 Please submit any *application* or container image issues with the upstream repository.  
