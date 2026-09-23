@@ -15,7 +15,7 @@ jobs:
       - name: Check if release with the same chart version exists
         id: check_release
         run: |
-          VERSION=$(yq ".name + \"-\" + .version" charts/tuwunel/Chart.yaml)
+          VERSION=$(yq ".name + \"-\" + .version" charts/*/Chart.yaml)
           echo "Checking for release $VERSION..."
           RELEASE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                     "https://api.github.com/repos/${{ github.repository }}/releases/tags/$VERSION")
