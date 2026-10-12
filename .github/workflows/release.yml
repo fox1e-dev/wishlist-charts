@@ -11,7 +11,7 @@ jobs:
     outputs:
       release_exists: ${{ steps.check_release.outputs.release_exists }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check if release with the same chart version exists
         id: check_release
         run: |
