@@ -68,19 +68,35 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           
-      - name: Log in to the OCI registry
-        uses: docker/login-action@v4
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Log in to the OCI registry
+      #   uses: docker/login-action@v4
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.7.0
-        with:
-          oci_registry_url: oci://ghcr.io/${{ github.repository }}
+        # with:
+        #   oci_registry_url: oci://ghcr.io/${{ github.repository }}
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Login to GitHub Container Registry
+        run: |
+          echo "${GHCR_REGISTRY_PASSWORD}" | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+        env:
+          GHCR_REGISTRY_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Push Charts to ghcr.io
+        run: |
+          for pkg in .cr-release-packages/*; do
+            if [ -z "${pkg:-}" ]; then
+              echo "No charts to release"
+              break
+            fi
+            helm push "${pkg}" oci://ghcr.io/${{ github.repository }}
+          done
           
       # - name: Run chart-releaser
       #   uses: helm/chart-releaser-action@v1.7.0
