@@ -1,7 +1,7 @@
 apiVersion: v2
 name: wishlist
 description: Wishlist is a self-hosted wishlist application that you can share with your friends and family.
-version: 0.3.1
+version: 0.3.2
 # renovate: image=ghcr.io/cmintey/wishlist
 appVersion: "v0.69.0"
 keywords:
